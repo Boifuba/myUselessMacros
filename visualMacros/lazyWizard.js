@@ -51,9 +51,9 @@ new Dialog({
           html.find('[name="innate-attack"]')[0].value || "none";
         let castSpell = html.find('[name="cast-spell"]')[0].value || "none";
 
-          //********************************************************
-          //******************** NENHUM INATE **********************
-          //********************************************************
+        //********************************************************
+        //******************** NENHUM INATE **********************
+        //********************************************************
 
         switch (innateAttack) {
           case "noInate":
@@ -140,7 +140,7 @@ new Dialog({
             );
             Sequencer.EffectManager.endEffects({ name: "*M-lightning*" });
             break;
-            
+
         }
 
         // Macros de Magia
@@ -231,14 +231,14 @@ valid animation types are:
 
             const templateObject =
               canvas.templates.placeables[
-                canvas.templates.placeables.length - 1
+              canvas.templates.placeables.length - 1
               ];
             //await templateObject.document.update({ fillColor: "" });
-templateObject.document.update({ fillColor: "" });
+            templateObject.document.update({ fillColor: "" });
             if (effectsG.length) {
               Sequencer.EffectManager.endEffects({ name: "*Grease*" });
-              let templateIds = canvas.templates.placeables[canvas.templates.placeables.length -1].id;
-canvas.scene.deleteEmbeddedDocuments("MeasuredTemplate", [templateIds]);
+              let templateIds = canvas.templates.placeables[canvas.templates.placeables.length - 1].id;
+              canvas.scene.deleteEmbeddedDocuments("MeasuredTemplate", [templateIds]);
             } else {
               new Sequence()
                 .effect()

@@ -15,7 +15,7 @@ let selectedPlayerIds = canvas.tokens.controlled.map(token => {
 // Build checkbox list for all active players
 users.forEach(user => {
   let checked = !!user.character && selectedPlayerIds.includes(user.character.id) && 'checked';
-  checkOptions+=`
+  checkOptions += `
     <br>
     <input type="checkbox" name="${user.id}" id="${user.id}" value="${user.name}" ${checked}>\n
     <label for="${user.id}">${user.name}</label>
@@ -23,13 +23,13 @@ users.forEach(user => {
 });
 
 new Dialog({
-  title:"Whisper",
-  content:`Whisper To: ${checkOptions} <br>
+  title: "Whisper",
+  content: `Whisper To: ${checkOptions} <br>
     <label for="message">Message:</label>
     <textarea id="message" name="message" rows="4" cols="50"></textarea><br>`,
-  buttons:{
-    whisper:{   
-      label:"Whisper",
+  buttons: {
+    whisper: {
+      label: "Whisper",
       callback: (html) => createMessage(html)
     }
   }
@@ -38,14 +38,14 @@ new Dialog({
 function createMessage(html) {
   var targets = [];
   // build list of selected players ids for whispers target
-  for ( let user of users ) {
-    if (html.find('[name="'+user.id+'"]')[0].checked){
-      applyChanges=true;
+  for (let user of users) {
+    if (html.find('[name="' + user.id + '"]')[0].checked) {
+      applyChanges = true;
       targets.push(user.id);
     }
     var messageText = html.find('[name="message"]')[0].value
   }
-if(!applyChanges)return;
+  if (!applyChanges) return;
   ChatMessage.create({
     content: messageText,
     whisper: targets
