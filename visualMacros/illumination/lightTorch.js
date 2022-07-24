@@ -53,16 +53,15 @@ if (effects.length) {
 const cDimLight = 2;
 const cBrightLight = 1;
 const cAnimationType = "torch";
-/*
-valid animation types are:
-"none", "torch", "pulse", "chroma", "wave", "fog", "sunburst", "dome", "emanation", "hexa", "ghost", "energy", "roiling" (requires negative light value), "hole" (requires negative light value)
-*/
+const cAngle = 360;
+
 
 let dataUpdate = {
+    'light.angle': !token.data.angle ? cAngle : 0,
     'light.dim': !token.data.light.dim ? cDimLight : 0,
     'light.bright': !token.data.light.bright ? cBrightLight : 0,
     'light.color': '#FFBE33',
     'light.alpha': 0.5,
     'light.animation': { "type": cAnimationType, "speed": 9, "intensity": 8 }
 };
-token.document.update(dataUpdate);
+tokenD.document.update(dataUpdate);
