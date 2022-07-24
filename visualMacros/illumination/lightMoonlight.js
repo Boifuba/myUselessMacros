@@ -22,8 +22,8 @@ if (effects.length) {
         .persist(true, { persistTokenPrototype: true })
         .name("M-moonlight")
         .play()
-
-    new Sequence()
+    
+        new Sequence()
         .effect()
         .file("Luzes/moonstone.png")
         .scale(0.25)
@@ -37,7 +37,7 @@ if (effects.length) {
         .play()
 
 
-    new Sequence()
+        new Sequence()
         .effect()
         .file("modules/jb2a_patreon/Library/Generic/Marker/MarkerLightNoPulse_01_Regular_Blue_400x400.webm")
         .scale(0.4)

@@ -4,7 +4,7 @@ const effects = Sequencer.EffectManager.getEffects({ name: "*M-BullseyeLantern*"
 
 if (effects.length) {
     Sequencer.EffectManager.endEffects({ name: "*M-BullseyeLantern*", object: tokenD });
-
+   
 } else {
 
     let tokenD = canvas.tokens.controlled[0];
@@ -21,7 +21,7 @@ if (effects.length) {
         .spriteOffset({ x: 10, y: 0 })
         .zeroSpriteRotation(true)
         .play()
-    new Sequence()
+   new Sequence()
         .effect()
         .file("modules/jb2a_patreon/Library/Generic/Smoke/Fumes_02_Steam_White_400x400.webm")
         .scale(0.1)
@@ -30,12 +30,12 @@ if (effects.length) {
         .name("M-BullseyeLantern2")
         .persist()
         .zeroSpriteRotation()
-        .spriteOffset({ x: -12, y: -10 })
-
-        .play()
-
-
-
+        .spriteOffset({ x: -12, y: -10})
+   
+ .play()
+ 
+            
+   
 }
 
 const cDimLight = 2;
