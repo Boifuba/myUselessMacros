@@ -1,11 +1,11 @@
 let tokenD = canvas.tokens.controlled[0];
 if (!tokenD) { return; }
-const effects = Sequencer.EffectManager.getEffects({ name: "*torch_wood*", object: tokenD });
+const effects = Sequencer.EffectManager.getEffects({ name: "*torch-wood*", object: tokenD });
 
 if (effects.length) {
-    Sequencer.EffectManager.endEffects({ name: "*torch_wood*", object: tokenD });
-    Sequencer.EffectManager.endEffects({ name: "*fume*", object: tokenD });
-    Sequencer.EffectManager.endEffects({ name: "*flame*", object: tokenD });
+    Sequencer.EffectManager.endEffects({ name: "*torch-wood*", object: tokenD });
+    Sequencer.EffectManager.endEffects({ name: "*torch-fume*", object: tokenD });
+    Sequencer.EffectManager.endEffects({ name: "*torch-flame*", object: tokenD });
 } else {
 
     let tokenD = canvas.tokens.controlled[0];
@@ -17,7 +17,7 @@ if (effects.length) {
         .atLocation(tokenD)
         .zeroSpriteRotation(true)
         .attachTo(tokenD, { bindVisibility: false })
-        .name("torch_wood")
+        .name("torch-wood")
         .persist()
         .spriteOffset({ x: 10, y: 0 })
         .zeroSpriteRotation(true)
@@ -28,7 +28,7 @@ if (effects.length) {
         .scale(0.3)
         .atLocation(tokenD)
         .attachTo(tokenD, { bindVisibility: false })
-        .name("fume")
+        .name("torch-fume")
         .persist()
         .zeroSpriteRotation()
         .spriteOffset({ x: 90, y: -78 })
@@ -40,7 +40,7 @@ if (effects.length) {
         .scale(0.3)
         .atLocation(tokenD)
         .attachTo(tokenD, { bindVisibility: false })
-        .name("flame")
+        .name("torch-flame")
         .persist()
         .size({ width: 300, height: 380 })
         .spriteOffset({ x: 42, y: -31 })

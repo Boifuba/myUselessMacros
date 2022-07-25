@@ -22,8 +22,8 @@ if (effects.length) {
         .persist(true, { persistTokenPrototype: true })
         .name("M-moonlight")
         .play()
-    
-        new Sequence()
+
+    new Sequence()
         .effect()
         .file("Luzes/moonstone.png")
         .scale(0.25)
@@ -37,7 +37,7 @@ if (effects.length) {
         .play()
 
 
-        new Sequence()
+    new Sequence()
         .effect()
         .file("modules/jb2a_patreon/Library/Generic/Marker/MarkerLightNoPulse_01_Regular_Blue_400x400.webm")
         .scale(0.4)
@@ -52,8 +52,8 @@ if (effects.length) {
 }
 
 
-const cDimLight = 1;
-const cBrightLight = 2;
+const cDimLight = 2;
+const cBrightLight = 1;
 const cAnimationType = "torch";
 /*
 valid animation types are:
