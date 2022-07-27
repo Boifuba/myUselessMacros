@@ -1,0 +1,74 @@
+//Boifubá - macro do apply manual damage for GGA
+
+if ( canvas.tokens.controlled[0]===undefined && Array.from(game.user.targets)[0]===undefined ) {
+  ui.notifications.error("Please, select or target a token."); // No Token is Selected
+} else {
+  main();
+}
+
+function main() {
+  let tokenD = canvas.tokens.controlled[0];
+}
+
+
+let dialog_content = `
+<style>
+ 
+ body.id {
+  background-color: antiquewhite;
+  background-size: auto;
+ }
+
+ form {
+  background-color: rgb(86, 123, 155);
+ }
+
+ table {
+  background-color: blue;
+ }
+ 
+</style>
+<form>
+    <div class="form-group">
+      <label>Damage:</label>
+      <input id="damage" name="damage" type="text" value="How much damage? ">
+    </div>    
+<div class="form-group">
+
+<table>
+
+<td style="text-align: center;"><input type="checkbox" id="minortick" style="margin-left:15px; margin-right:6px" value=yes<label>Burn</label></td>
+
+<td style="text-align: center;"><input type="checkbox" id="majortick" style="margin-left:15px; margin-right:6px" value=yes<label>Corrosive</label></td> 
+
+
+</table>
+`;
+let dialogButtons = {
+    yes: {
+      icon: "<i class='fas fa-check'></i>",
+      label: `Cast Spells`,
+      callback: async (html) => applySpell(html.find('#energy').val())
+    },
+    no: {
+      icon: "<i class='fas fa-times'></i>",
+      label: `Cancel Spell`
+    }
+  }
+
+  // título   
+  new Dialog({
+    title: `Não sei que coisa vai ser isso`,
+    content: dialog_content,
+    buttons: dialogButtons,
+    default: "yes",
+  }).render(true);
+
+
+
+      <style>
+
+        form#form-group {
+          background-color: antiquewhite;
+        }
+      </style>

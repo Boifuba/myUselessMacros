@@ -1,0 +1,66 @@
+let tokenD = canvas.tokens.controlled[0];
+if (!tokenD) { return; }
+const effects = Sequencer.EffectManager.getEffects({ name: "bolaDeEnergia", object: tokenD });
+
+if (effects.length) {
+    Sequencer.EffectManager.endEffects({ name: "*bolaDeEnergia*", object: tokenD });
+    //dispara o ataque.
+} else {
+    //efeito bolaDeEnergia
+    let tokenD = canvas.tokens.controlled[0];
+
+    new Sequence()
+        .effect()
+        .file("Luzes/tocha.png")
+        .scale(0.25)
+        .atLocation(tokenD)
+        .zeroSpriteRotation(true)
+        .attachTo(tokenD, { bindVisibility: false })
+        .name("torch-wood")
+        .persist()
+        .spriteOffset({ x: 10, y: 0 })
+        .zeroSpriteRotation(true)
+        .play()
+    new Sequence()
+        .effect()
+        .file("modules/jb2a_patreon/Library/Generic/Smoke/Fumes_01_Fire_Orange_400x400.webm")
+        .scale(0.3)
+        .atLocation(tokenD)
+        .attachTo(tokenD, { bindVisibility: false })
+        .name("torch-fume")
+        .persist()
+        .zeroSpriteRotation()
+        .spriteOffset({ x: 90, y: -78 })
+
+        .play()
+    new Sequence()
+        .effect()
+        .file("modules/jb2a_patreon/Library/Generic/Fire/Flame/Flames_02_Regular_Orange_400x400.webm")
+        .scale(0.3)
+        .atLocation(tokenD)
+        .attachTo(tokenD, { bindVisibility: false })
+        .name("torch-flame")
+        .persist()
+        .size({ width: 300, height: 380 })
+        .spriteOffset({ x: 42, y: -31 })
+        .zeroSpriteRotation()
+        .play()
+
+}
+
+
+const cDimLight = 2;
+const cBrightLight = 1;
+const cAnimationType = "torch";
+const cAngle = 360;
+
+
+let dataUpdate = {
+    'light.angle': !token.data.angle ? cAngle : 0,
+    'light.dim': !token.data.light.dim ? cDimLight : 0,
+    'light.bright': !token.data.light.bright ? cBrightLight : 0,
+    'light.color': '#FFBE33',
+    'light.alpha': 0.5,
+    'light.animation': { "type": cAnimationType, "speed": 9, "intensity": 8 }
+};
+tokenD.document.update(dataUpdate);
