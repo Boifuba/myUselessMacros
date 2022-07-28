@@ -4,46 +4,39 @@ const effects = Sequencer.EffectManager.getEffects({ name: "bolaDeEnergia", obje
 
 if (effects.length) {
     Sequencer.EffectManager.endEffects({ name: "*bolaDeEnergia*", object: tokenD });
-    //dispara o ataque.
+
+    let targets = Array.from(game.user.targets);
+    targets.forEach((target) => {
+        new Sequence()
+            .effect()
+            .file("modules/jb2a_patreon/Library/3rd_Level/Lightning_Bolt/LightningBolt_01_Regular_Blue_4000x400.webm")
+            .atLocation(token, { randomOffset: true })
+            .stretchTo(target, { attachTo: true })
+            .scale(1)
+            .wait(1500)
+
+            .effect()
+            .file("modules/jb2a_patreon/Library/Generic/Lightning/LightningBall_01_Regular_Blue_400x400.webm")
+            .atLocation(target)
+            .scaleOut(0.1, 500, { ease: "easeInOutBounce", delay: 0 })
+
+
+            .play()
+    })
 } else {
     //efeito bolaDeEnergia
-    let tokenD = canvas.tokens.controlled[0];
 
     new Sequence()
         .effect()
-        .file("Luzes/tocha.png")
+        .file("modules/jb2a_patreon/Library/Generic/Lightning/LightningBall_01_Regular_Blue_400x400.webm")
         .scale(0.25)
-        .atLocation(tokenD)
+        .atLocation(tokenD, { randomOffset: true })
         .zeroSpriteRotation(true)
         .attachTo(tokenD, { bindVisibility: false })
-        .name("torch-wood")
+        .name("bolaDeEnergia")
         .persist()
         .spriteOffset({ x: 10, y: 0 })
         .zeroSpriteRotation(true)
-        .play()
-    new Sequence()
-        .effect()
-        .file("modules/jb2a_patreon/Library/Generic/Smoke/Fumes_01_Fire_Orange_400x400.webm")
-        .scale(0.3)
-        .atLocation(tokenD)
-        .attachTo(tokenD, { bindVisibility: false })
-        .name("torch-fume")
-        .persist()
-        .zeroSpriteRotation()
-        .spriteOffset({ x: 90, y: -78 })
-
-        .play()
-    new Sequence()
-        .effect()
-        .file("modules/jb2a_patreon/Library/Generic/Fire/Flame/Flames_02_Regular_Orange_400x400.webm")
-        .scale(0.3)
-        .atLocation(tokenD)
-        .attachTo(tokenD, { bindVisibility: false })
-        .name("torch-flame")
-        .persist()
-        .size({ width: 300, height: 380 })
-        .spriteOffset({ x: 42, y: -31 })
-        .zeroSpriteRotation()
         .play()
 
 }
@@ -59,7 +52,7 @@ let dataUpdate = {
     'light.angle': !token.data.angle ? cAngle : 0,
     'light.dim': !token.data.light.dim ? cDimLight : 0,
     'light.bright': !token.data.light.bright ? cBrightLight : 0,
-    'light.color': '#FFBE33',
+    'light.color': '#75b8ff',
     'light.alpha': 0.5,
     'light.animation': { "type": cAnimationType, "speed": 9, "intensity": 8 }
 };

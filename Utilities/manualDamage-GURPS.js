@@ -3,8 +3,18 @@ function manualDamage(damage, type) {
 }
 new Dialog({
   title: `Manual Damage`,
-  content: `<div><label for="damageAmount">damage</label><input id="damageAmount" type="text" /></div>
-<div><label for="damageType">type</label><input id="damageType" type="text" /></div>`,
+  content: `<fieldset>
+  <legend> Escolha seus interesses </ legend>
+  <div>
+    <input type = "checkbox" id = "codificação" name = "interesse" value = "codificação" checked>
+    <label for = "coding"> Codificação </ label>
+  </ div>
+  <div>
+    <input type = "checkbox" id = "música" name = "interesse" value = "música">
+    <label for = "music"> Música </ label>
+  </ div>
+</ fieldset>
+            <div><label for="damageType">type</label><input id="damageType" type="text" /></div>`,
   buttons: {
     confirm: {
       label: "Confirm",

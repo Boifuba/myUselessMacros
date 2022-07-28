@@ -52,7 +52,7 @@ function greaterHealing(energy) {
 
 let dialogContent =
 ` 
-style
+
     <form>
     <div class="form-group">
       <label>Fatigue Points:</label>

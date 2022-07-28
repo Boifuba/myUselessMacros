@@ -1,0 +1,60 @@
+if (canvas.tokens.controlled.length === 0)
+  return ui.notifications.error("Selecione o seu token");
+
+const targets = Array.from(game.user.targets);
+const tokenD = canvas.tokens.controlled[0];
+
+let applyChanges = false;
+new Dialog({
+  title: `Aplly Manual Damage`,
+  content: `
+    <form>
+      <div class="form-group">
+        <label>Type of Damage: </label>
+        <select id="type-damage" name="type-damage">
+          <option value="burn">Burning</option>
+          <option value="cut" selected>Cutting</option>
+          <option value="*3">Burning</option>
+          </select>
+      </div>
+      </form>
+      <form>
+    <div class="form-group">
+      <label>Damage amount:</label>
+      <input id="damage" name="damage" type="text" value="3d6+2" min="1" max="6">
+      </div>
+    `,
+  buttons: {
+    yes: {
+      icon: "<i class='fas fa-check'></i>",
+      label: `Hit Hard`,
+      callback: () => (applyChanges = true),
+    },
+    no: {
+      icon: "<i class='fas fa-times'></i>",
+      label: `Flee`,
+    },
+  },
+  default: "yes",
+  close: (html) => {
+    if (applyChanges) {
+      let updates = [];
+      for (let token of canvas.tokens.controlled) {
+        let applyDamagettack =
+          html.find('[name="type-damage"]')[0].value || "none";
+       
+
+            
+        }
+
+        }
+      }
+    }
+ //   var e = document.getElementById("type-damage");
+ //   var value = e.value;
+ //   var text = e.options[e.selectedIndex].text;
+    
+    
+    // value == 2
+    // text == "test2"
+).render(true);
