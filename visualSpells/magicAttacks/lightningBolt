@@ -1,10 +1,14 @@
-// YOU WILL NEED SOME MODULES:
-// JB2A PATREON
-// WARG GATE
-// SEQUENCER
-// 
-// I DON'T KNOW HOW I DID IT.
-// 
+/* To use this macro you'll need these modules:
+sequencer
+warpgate
+jb2a patreon version.
+
+Just install the modules and paste this macro as script.
+i hope you enjoy
+*/ 
+
+
+
 let tokenD = canvas.tokens.controlled[0];
 if (!tokenD) { return; }
 const effects = Sequencer.EffectManager.getEffects({ name: "bolaDeEnergia", object: tokenD });
@@ -34,19 +38,17 @@ if (effects.length) {
 
     // const updates = Array.from(game.user.targets).map(t => ({_id: t.id, "light.bright": 1, "animation": {type: "torch", speed: 3, intensity: 1}}));
     //      canvas.scene.updateEmbeddedDocuments("Token", updates);
-
-
-    setTimeout((function () {
-        const updates = Array.from(game.user.targets).map(t => ({
-            _id: t.id, 'light.color': '#75b8ff',
-            'light.alpha': 0.5, "light.bright": 1, "animation": { type: "torch", speed: "9", intensity: "8" }
-        }));
-        canvas.scene.updateEmbeddedDocuments("Token", updates);
+   
+   
+    setTimeout((function() {
+        const updates = Array.from(game.user.targets).map(t => ({_id: t.id, 'light.color': '#75b8ff',
+        'light.alpha': 0.5,"light.bright": 1, "animation": {type: "torch", speed: "9", intensity: "8"}}));
+         canvas.scene.updateEmbeddedDocuments("Token", updates);
     }), 200)
-
-    setTimeout((function () {
-        const updates = Array.from(game.user.targets).map(t => ({ _id: t.id, "light.bright": 0, "animation": { type: "torch", speed: 0, intensity: 0 } }));
-        canvas.scene.updateEmbeddedDocuments("Token", updates);
+    
+    setTimeout((function() {
+        const updates = Array.from(game.user.targets).map(t => ({_id: t.id, "light.bright": 0, "animation": {type: "torch", speed: 0, intensity: 0}}));
+         canvas.scene.updateEmbeddedDocuments("Token", updates);
     }), 3000)
 
 
