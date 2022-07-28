@@ -1,14 +1,11 @@
-function greatHealing(fatigue) {
-    GURPS.executeOTF(`/r [Sp:"Major Healing" *Costs ${fatigue}]`)
-   }
-   
-   new Dialog({
-     title: `Great Rilings xablauster`,
-     content: `<div><label for="fatigue">Fatigue</label><input id="fatigue" type="text" /></div>`,
-     buttons: {
-       confirm: {
-         label: "Confirm",
-         callback: async (html) => greatHealing(html.find('#fatigue').val())
-       }
-     }
-   }).render(true);
+const target = game.user.targets.first();
+
+new Sequence()
+    .effect()
+        .file("jb2a.energy_beam.normal.bluepink.03")
+        .attachTo(token)
+        .stretchTo(target, { attachTo: true })
+        .persist()
+    .play()
+
+    
