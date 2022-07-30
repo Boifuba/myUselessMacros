@@ -1,0 +1,35 @@
+function manualDamage(damage, type) {
+  GURPS.executeOTF(`/r [${damage} ${type}]`);
+}
+new Dialog({
+  title: `Manual Damage`,
+  content: 
+`<form>
+<style>
+form#form-group {
+  background-color: red;
+}
+</style>
+<form id="form-group">
+<div class="form-group">
+  <label>Amount Damage:</label>
+  <input id="damageAmount" name="damageAmount"  value="" min="1" max="20">
+  </div>  
+  
+  <form>
+<div class="form-group">
+  <label>Type of damage:</label>
+  <input id="damageType" name="damageType"  value="" min="1" max="20">
+  </div>  </div>  
+  `,
+  buttons: {
+    confirm: {
+      label: "Confirm",
+      callback: async (html) => {
+        manualDamage(html.find('#damageAmount').val(), html.find('#damageType').val());
+      }
+    }
+  }
+}, {
+  width: 400
+}).render(true);
