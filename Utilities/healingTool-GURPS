@@ -7,23 +7,23 @@ function minorHealing(energy) {
   if ((energy > 3)) {
     ui.notifications.error("The value need to be equal or lower than 3");
     dialogEditor.render(true);
+        
+ 
+//  energy = Object.keys(energy).length === 0 {
+//       ui.notifications.error("Choose a value between 1-3");
+      
+      
 
-
-    //  energy = Object.keys(energy).length === 0 {
-    //       ui.notifications.error("Choose a value between 1-3");
-
-
-
-  } else {
-
-
-    GURPS.executeOTF(`/r [/hp +${energy}  @target]`)
-    GURPS.executeOTF(`/r [/fp -${energy}]`)
+    } else {
+      
+      
+      GURPS.executeOTF(`/r [/hp +${energy}  @target]`)
+      GURPS.executeOTF(`/r [/fp -${energy}]`)
+    }
   }
-}
 
 
-//MAJOR HEALING
+  //MAJOR HEALING
 
 
 function majorHealing(energy) {
@@ -34,12 +34,11 @@ function majorHealing(energy) {
   } else {
     let realHealing = energy * 2
     targets.forEach((target) => {
-      GURPS.executeOTF(`/r [/hp +${realHealing}  @target]`)
-      GURPS.executeOTF(`/r [/fp -${energy}]`);
+    GURPS.executeOTF(`/r [/hp +${realHealing}  @target]`)
+    GURPS.executeOTF(`/r [/fp -${energy}]`);
     }
-    )
-  };
-
+    )};
+  
 
 }
 
@@ -52,7 +51,7 @@ function greaterHealing(energy) {
 }
 
 let dialogContent =
-  ` 
+` 
 
     <form>
     <div class="form-group">
@@ -64,7 +63,7 @@ let dialogContent =
 
 //let applyChanges = false
 let dialogButtons = {
-
+ 
 
   minorHealing: {
 
