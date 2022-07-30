@@ -1,0 +1,35 @@
+const managerType = 'Gerenciador de Macros';
+
+game.packs.find(p => p.metadata.label === "Label of Compendium"){
+  const journals = [
+    
+    "gurps-instant-defaults.GURPS4E-Basic-Set" , 
+    "GURPS Magic"  
+
+  ];
+
+    let buttons = {}, dialog, content = `<div sytle="width:100%;text-align:center;><h2>Choose Journal</h2></div>`;
+  
+  
+  journals.forEach((str)=> {
+    let journal = game.packs.get(str);
+    if(!journal) return;
+
+    buttons[str] = {
+      label : `
+        <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;">
+          
+        <div style="display:flex;justify-content:left;flex-grow:1;">
+        
+          <source src="/sounds/pop.mp3" type="audio/mpeg">
+
+        <div style="display:flex;justify-content:left;flex-grow:1"><label>${str}</label></div>
+        </div>`,
+      callback : () => {
+        game.packs.get(str).render(true);
+       dialog.render(true);
+      }
+    }
+  });
+  dialog = new Dialog({title : `${managerType}`,content, buttons}).render(true);
+}();
