@@ -1,0 +1,13 @@
+const tokenD = canvas.tokens.controlled[0];
+
+const cDimSight = 2;
+const cSightAngle = 275;
+
+
+
+let dataUpdate = {
+    'dimSight': !token.data.dimSight ? cDimSight : 0,
+    'sightAngle': !token.data.sightAngle ? cSightAngle: 0,
+    
+};
+tokenD.document.update(dataUpdate);

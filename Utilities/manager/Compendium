@@ -1,4 +1,4 @@
-const managerType = 'Gerenciador de Macros';
+const managerType = 'Gerenciador de Compendiums';
 
 (()=>{
   const journals = [
@@ -10,6 +10,22 @@ const managerType = 'Gerenciador de Macros';
    
 
   ];
+
+  let path = 'icons/sundries/books/',
+files = [
+    'book-backed-silver-gold.webp', 
+    'book-worn-brown-grey.webp',
+     'book-worn-blue.webp',
+      'book-symbol-canterbury-cross.webp',
+       'book-symbol-triangle-silver-purple.webp',
+        'book-tooled-silver-blue.webp',
+         'book-symbol-fire-gold-orange.webp',
+          'book-stack.webp',
+           'book-embossed-spiral-purple-white.webp',
+            'book-symbol-leaf-green.webp']
+i = Math.floor(Math.random()*files.length);
+let imagem = (path+files[i]);
+console.log(imagem)
 
     let buttons = {}, dialog, content = `<div sytle="width:100%;text-align:center;><h2>Choose Journal</h2></div>`;
   
@@ -25,7 +41,7 @@ const managerType = 'Gerenciador de Macros';
           
         <div style="display:flex;justify-content:left;flex-grow:1;">
         
-          <source src="/sounds/pop.mp3" type="audio/mpeg">
+        <img src="${imagem}" width="50" height="50" style="background-color:#5c5c5c;;border-radius: 10px;margin: 3px 3px 3px;"/></div>
 
         <div style="display:flex;justify-content:left;flex-grow:1"><label>${name}</label></div>
         </div>`,
