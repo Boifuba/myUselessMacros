@@ -1,0 +1,44 @@
+let formula = "2d6+1";
+const dice = formula.split("d")[0];
+formula += `+${dice * 2}`;
+
+
+
+
+function splitString(stringToSplit, separator) {
+    var arrayOfStrings = stringToSplit.split(separator);
+  console.log(arrayOfStrings[1])
+    let teste = Math.floor(parseInt(arrayOfStrings[1]))
+    
+
+  }
+  
+  var tempestString = '2d6+1';
+  
+  var space = 'd6';
+  
+  let array = splitString(tempestString, space) 
+  splitString(tempestString);
+  
+
+
+
+  //a minha ideia é criar um array e somar eles com reduce. 
+
+  const obj = {
+    one: 5,
+    two: 15,
+    three: 45,
+  };
+  
+  // 👇️ [5, 15, 45]
+  const values = Object.values(obj);
+  
+  const sum = values.reduce((accumulator, value) => {
+    return accumulator + value;
+  }, 0);
+  
+  console.log(sum); // 👉️ 65
+
+
+  ["Major Healing 8HP"/if [Sp:"Major Healing"] {/hp +8 @target\\/fp -4 }]

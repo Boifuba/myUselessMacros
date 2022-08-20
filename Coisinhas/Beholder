@@ -1,0 +1,90 @@
+let style = `
+<style>
+.outro {
+backgorund-color = red; 
+}
+</style>
+`
+
+
+const tokenD = canvas.tokens.controlled[0]
+const ray = [
+    "Charm Ray", "Paralyzing Ray", "Fear Ray", "Slowing Ray", "Enervation Ray",
+    "Telekinetic Ray", "Sleep Ray", "Petrification Ray", "Disintegration Ray", "Death Ray"
+]
+
+const random = ray[Math.floor(Math.random() * ray.length)]
+console.log(random)
+const roll = Math.floor(Math.random() * 5) + 1
+console.log(roll)
+console.log(tokenD.name)
+
+
+if (roll === 1) {
+    grammar = "turn"
+} else {
+    grammar = "turns"
+}
+
+{
+    if (random === "Charm Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random}</h1><div class="outro"><b> Beholder: </b> 
+ Make a [WILL] check or will be charmed by Beholder for ${roll} ${grammar}</div>`
+        }))
+    }
+    if (random === "Paralyzing Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random}</h1><b> Beholder: </b> 
+ You must succeed a [HT] check or be paralyzed by ${roll} ${grammar}`
+        }))
+    }
+    if (random === "Fear Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random}</h1><b> Beholder: </b> 
+ Make a [WILL] check or be frightened by  ${roll} ${grammar}`
+        }))
+    }
+    if (random === "Slowing Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random}</h1><b> Beholder: </b> 
+ Make a [HT] check or your speed will be halved by beholder for ${roll} ${grammar}`
+        }))
+    }
+    if (random === "Enervation Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random}</h1><b> Beholder: </b> 
+ Make a [WILL] save or be enraged by Beholder for ${roll} ${grammar} acting as a <b>Berserker</b>`
+        }))
+    }
+    if (random === "Telekinetic Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random}</h1><b> Beholder: </b> 
+ You must to succeed a [DX] or ["ST" ST-2] check or Beholder moves you up to ${roll} hex in any direction`
+        }))
+    }
+    if (random === "Sleep Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random}</h1><b> Beholder: </b> 
+ Make a ["WILL" will-2] check or sleep for ${roll} ${grammar} or until you take some damage or another person takes an action to wake you up`
+        }))
+    }
+    if (random === "Petrification Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random}</h1><b> Beholder: </b> 
+ Make a ["HT" ht-1] save or be petryfied for ${roll} ${grammar}`
+        }))
+    }
+    if (random === "Disintegration Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random}</h1><b> Beholder: </b> 
+ Make a ["HT" ht+1]  check or take ["TOO MUCH DAMAGE" /5d6 burn] If your your fail on the first survive check, <b>YOU DIE</b>  your body become a pile of dust in the ground`}))
+    }
+    if (random === "Death Ray") {
+        (ChatMessage.create({
+            content: `<h1 style="background-color: black;color: aliceblue;">${random} </h1><b> Beholder: </b> 
+ Make a ["HT"  ht+2] Roll or <b>DIE<b>`}))
+    }
+}
+
+

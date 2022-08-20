@@ -1,7 +1,3 @@
-/** 
- * Provides a dialog to whisper specific players. If you have tokens selected, it will automatically default to try and whisper those players.
- * @Author: Nelson#3570
- */
 
 let applyChanges = false;
 
@@ -12,7 +8,6 @@ let selectedPlayerIds = canvas.tokens.controlled.map(token => {
   if (playerTokenIds.includes(token.actor.id)) return token.actor.id;
 });
 
-// Build checkbox list for all active players
 users.forEach(user => {
   let checked = !!user.character && selectedPlayerIds.includes(user.character.id) && 'checked';
   checkOptions += `
