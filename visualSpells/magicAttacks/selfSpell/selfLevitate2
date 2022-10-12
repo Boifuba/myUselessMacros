@@ -1,0 +1,85 @@
+// Requires the JB2A module (free or patreon)
+// Requires the TokenMagicFX module
+let error = false;
+if(!(game.modules.get("jb2a_patreon")?.active || game.modules.get("JB2A_DnD5e")?.active)){
+error = `You need to have JB2A installed and activated to run this macro!`;
+}
+if(!(game.modules.get("tokenmagic")?.active)){
+error = `You need to have TokenMagicFX installed and activated to run this macro!`;
+}
+if(error){
+ui.notifications.error(error);
+return;
+}
+const tokenD = canvas.tokens.controlled[0];
+const name = `Flying-${tokenD.data._id}`
+const effects = Sequencer.EffectManager.getEffects({ name });
+if(effects.length) {
+Sequencer.EffectManager.endEffects({ name });
+token.document.update({elevation: token.data.elevation =0});
+TokenMagic.deleteFiltersOnSelected();
+}
+else {
+token.document.update({elevation: token.data.elevation +30});
+new Sequence()
+.effect()
+.file("jb2a.smoke.ring.01.white")
+.scale(0.25)
+.atLocation(tokenD)
+.attachTo(tokenD, { bindVisibility: false} )
+.belowTokens()
+.opacity(0.1)
+.persist()
+.name(name)
+.play()
+const shadow = [{
+filterType: "shadow",
+filterId: "myShadow",
+rotation: 195,
+blur: 3,
+quality: 5,
+distance: 20,
+alpha: 0.6,
+padding: 20,
+shadowOnly: false,
+color: 0x000000,
+zOrder: 8000,
+animated: {
+blur: {
+active: true,
+loopDuration: 500,
+animType: "syncCosOscillation",
+val1: 2,
+val2: 4
+},
+rotation: {
+active: true,
+loopDuration: 100,
+animType: "syncSinOscillation",
+val1: 33,
+val2: 37
+}
+}
+}];
+const movement = [{
+filterType: "transform",
+filterId: "dodgeStance",
+padding: 50,
+animated: {
+translationX: {
+animType: "sinOscillation",
+val1: -0.125,
+val2: +0.125,
+loopDuration: 9600,
+},
+translationY: {
+animType: "cosOscillation",
+val1: -0.035,
+val2: +0.035,
+loopDuration: 1400,
+}
+}
+}];
+await TokenMagic.addUpdateFiltersOnSelected(shadow);
+await TokenMagic.addUpdateFiltersOnSelected(movement);
+}
