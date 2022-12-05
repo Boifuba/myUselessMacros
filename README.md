@@ -1,44 +1,8 @@
-# GURPS Instant Defaults is a Module for Foundry VTT
+# myUselessMacros
 
-Works with **GGA** System! It provides a full list of skill defaults and some items to make your game faster!
+>If cannot readed it, use google translator (Portuguese to your language)
 
-## Authors
-
-- Boifubá
-- Pimpão
-- danielrab
-
-## Manifest:
-
-https://raw.githubusercontent.com/boifuba/Gurps-Instant-Defaults/main/module.json
-
-# How to use
-
-1. Install de module as usual and activate it!
-2. Create a new macro as Script (Type) and copy and paste this line:
-
-> InstantDefaults.skillChooser()
-
-3. Give to your macro a cool name and save it.
-
-4. Use the field to search the desired default skill or click/drag at the OtF
-
-![image](https://user-images.githubusercontent.com/21176804/137811594-8839ead3-e5ac-4ec6-9ae2-910718aab1f1.png)
-
-![image](https://user-images.githubusercontent.com/21176804/137811668-ef07e3ad-7d47-46c1-8e19-51bfffcbd905.png)
-
-4. If everything is ok you'll see this window
-
-5. You can use the journal from compendium as well.
-
-## Other Modules
-
-[GURPS Calculator](https://github.com/Boifuba/GURPS-Calculator "tic tic tic")
-
-[GURPS Tables](https://github.com/Boifuba/GURPS-Tables "if you are Steve Jackson don't click here.")
-
-[GURPS Macro Toolbox](https://github.com/Boifuba/GURPS-Macro-Toolbox "It's a mess!")
-
+Esse módulo é um conjunto de macros para ajudar a fluência dos meus jogos. Qualquer dúvida me procure no discord. Boifubá#6083
 ---
 
 ## Legal
