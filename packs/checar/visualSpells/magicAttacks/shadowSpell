@@ -1,0 +1,28 @@
+let targets = Array.from(game.user.targets);
+const target = game.user.targets.first();
+ui.notifications.notify(token.name + " Ataca " + target.name);
+
+
+targets.forEach(target => {
+    new Sequence()
+        .effect()
+        .file("jb2a.smoke.puff.side.dark_black.2")
+        .attachTo(token)
+        .stretchTo(target, { attachTo: true })
+        //.size(5000)
+        .scale(3.0)
+        .spriteOffset({ x: -200, y: -50 })
+        .wait(1500)
+    
+        new Sequence()
+        .effect()
+        .file("modules/jb2a_patreon/Library/Cantrip/Toll_The_Dead/TollTheDeadSkullSmoke_01_Regular_Grey_400x400.webm")
+        .attachTo(target)
+        .scale(3.0)
+        .spriteOffset({ x: -200, y: -50 })
+        .wait(1500)
+
+
+        .play()
+
+});

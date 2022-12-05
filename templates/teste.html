@@ -1,0 +1,31 @@
+
+    <body>
+       
+                 <form>
+               <div class="form-group">
+                 <label style="text-align: left"><b>Equipments:</b> </label>
+                 <select id="gear" name="gear">
+                  
+                 </select>
+               </div>
+             </form>
+           
+             <button onclick="senta()">Generate</button>
+
+           
+    </body>
+
+<script>
+
+            function senta() {
+            let array = GURPS.recurselist(GURPS.LastActor.system.skills, (skill, key, depth) => { 
+            var inputs = document.getElementsByName("gear");
+               for (var i = 0; i < inputs.length; i++) {
+                 if (array.length > 0) {
+                   inputs[i].value = array.pop();
+                 }
+               }
+             })}
+            
+</script>
+

@@ -1,0 +1,203 @@
+if (canvas.tokens.controlled.length === 0)
+  return ui.notifications.error("Selecione o seu token");
+
+const targets = Array.from(game.user.targets);
+const tokenD = canvas.tokens.controlled[0];
+
+let applyChanges = false;
+new Dialog({
+  title: `Aplly Manual Damage`,
+  content: `
+    <form>
+      <div class="form-group">
+        <label>Type of Damage: </label>
+        <select id="type-damage" name="type-damage">
+          <option value="burn">Burning</option>
+          <option value="cut" selected>Cutting</option>
+          <option value="*3">Burning</option>
+          </select>
+      </div>
+      </form>
+      <form>
+    <div class="form-group">
+      <label>Damage amount:</label>
+      <input id="damage" name="damage" type="text" value="3d6+2" min="1" max="6">
+      </div>
+    `,
+  buttons: {
+    yes: {
+      icon: "<i class='fas fa-check'></i>",
+      label: `Hit Hard`,
+      callback: () => (applyChanges = true),
+    },
+    no: {
+      icon: "<i class='fas fa-times'></i>",
+      label: `Flee`,
+    },
+  },
+  default: "yes",
+  close: (html) => {
+    if (applyChanges) {
+      let updates = [];
+      for (let token of canvas.tokens.controlled) {
+        let applyDamagettack =
+          html.find('[name="type-damage"]')[0].value || "none";
+       
+
+            
+        }
+
+        }
+      }
+    }
+ //   var e = document.getElementById("type-damage");
+ //   var value = e.value;
+ //   var text = e.options[e.selectedIndex].text;
+    
+    
+    // value == 2
+    // text == "test2"
+).render(true);
+
+<div class="gga-group">
+            <h4>Type &amp; Wounding Modifiers</h4>
+
+            <section id="wound-modifier-table">
+              <div name="wounding-modifiers" class="default-wound-modifiers">
+                <div class="gurps-3col gurps-radio-col">
+                  <header>Damage Type</header>
+                  <header>Abbrev</header>
+                  <header>Modifier</header>
+
+                    <div><label><input type="radio" name="woundmodifier" value="burn">&nbsp;Burning</label>
+                    </div>
+                    <div>
+                      burn
+                    </div>
+                    <div name="burn">×1
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="cor">&nbsp;Corrosive</label>
+                    </div>
+                    <div>
+                      cor
+                    </div>
+                    <div name="cor">×1
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="cr">&nbsp;Crushing</label>
+                    </div>
+                    <div>
+                      cr
+                    </div>
+                    <div name="cr">×1
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="cut">&nbsp;Cutting</label>
+                    </div>
+                    <div>
+                      cut
+                    </div>
+                    <div name="cut">×1.5
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="fat">&nbsp;Fatigue</label>
+                    </div>
+                    <div>
+                      fat
+                    </div>
+                    <div name="fat">×1
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" checked="" value="imp">&nbsp;Impaling</label>
+                    </div>
+                    <div>
+                      imp
+                    </div>
+                    <div name="imp">×2
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="pi-">&nbsp;Small Piercing</label>
+                    </div>
+                    <div>
+                      pi-
+                    </div>
+                    <div name="pi-">×0.5
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="pi">&nbsp;Piercing</label>
+                    </div>
+                    <div>
+                      pi
+                    </div>
+                    <div name="pi">×1
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="pi+">&nbsp;Large Piercing</label>
+                    </div>
+                    <div>
+                      pi+
+                    </div>
+                    <div name="pi+">×1.5
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="pi++">&nbsp;Huge Piercing</label>
+                    </div>
+                    <div>
+                      pi++
+                    </div>
+                    <div name="pi++">×2
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="tox">&nbsp;Toxic</label>
+                    </div>
+                    <div>
+                      tox
+                    </div>
+                    <div name="tox">×1
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="dmg">&nbsp;Damage</label>
+                    </div>
+                    <div>
+                      dmg
+                    </div>
+                    <div name="dmg">×1
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="injury">&nbsp;Injury</label>
+                    </div>
+                    <div>
+                      injury
+                    </div>
+                    <div name="injury">×1
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="kb">&nbsp;Knockback only</label>
+                    </div>
+                    <div>
+                      kb
+                    </div>
+                    <div name="kb">×1
+                    </div>
+                    <div><label><input type="radio" name="woundmodifier" value="ctrl">&nbsp;Control Points</label>
+                    </div>
+                    <div>
+                      ctrl
+                    </div>
+                    <div name="ctrl">×1
+                    </div>
+                </div>
+
+
+
+              </div>
+            </section>
+
+            <hr> <!-- Doesn't do much except add some space -->
+
+            <label><input type="radio" name="woundmodifier" value="none">&nbsp;No Modifier</label>
+
+            <div class="grid grid-2col flex-between">
+              <div><label><input type="radio" name="woundmodifier" value="User Entered">&nbsp;Enter Modifier:</label>
+              </div>
+              <input type="text" class="decimal-digits-only" id="user-entered-woundmod" value="1">
+            </div>
+
+            <div class="grid grid-2col flex-between">
+              <label>Additional modifier:</label>
+              <input type="number" class="decimal-digits-only" id="addmodifier" value="0">
+            </div>
+
+            <div class="grid grid-2col flex-between">
+              <label>Damage Modifier:</label>
+              <input type="text" id="adddamagemodifier" value="">
+            </div>
+          </div>

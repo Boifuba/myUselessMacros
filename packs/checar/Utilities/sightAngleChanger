@@ -1,0 +1,6 @@
+// On click changes the vision to 275 and clicking again change the vision to 360. 
+// Remember to select the token again to see the changes!
+
+ui.notifications.notify(token.name + "Clique no token para alterar a visão ");
+await token.document.update({sightAngle : token.document.data.sightAngle === 360 ? 275 : 360});
+await canvas.scene.updateEmbeddedDocuments("Token", updates);

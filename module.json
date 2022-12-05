@@ -1,0 +1,55 @@
+{
+  "id": "myUselessMacros",
+  "title": "myUselessMacros",
+  "description": "A bunch of tools to you play GURPS on GGA",
+  "authors": [
+    {
+      "name": "Boifubá",
+      "url": "https://github.com/Boifuba",
+      "discord": "Boifubá#6083",
+      "flags": {}
+    }
+  ],
+  "version": "0.1",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10.2885",
+    "maximum": "10"
+  },
+  "url": "https://gitlab.com/boifuba/myuselessmacros/",
+  "manifest": "https://raw.githubusercontent.com/boifuba/Gurps-Instant-Defaults/main/module.json",
+  "download": "https://github.com/boifuba/myuselessmacros/archive/refs/heads/main.zip",
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/simple.css"
+  ],
+ 
+  "packs": [
+    {
+      "name": "Defaults",
+      "label": "GURPS Basic Set Skills",
+      "path": "packs/gurps-instant-defaults.db",
+      "type": "JournalEntry",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "GURPS4E-Macro",
+      "label": "myUselessMacros",
+      "path": "packs/macros.db",
+      "type": "Macro",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "GURPS4E-B-RollTables",
+      "label": "myUselessTables",
+      "path": "packs/gurps-4e-rolltables.db",
+      "type": "RollTable",
+      "private": false,
+      "flags": {}
+    }
+  ]
+}

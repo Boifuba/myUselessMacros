@@ -1,0 +1,92 @@
+const effects = Sequencer.EffectManager.getEffects({ name: "*Levita*" });
+const tokenD = canvas.tokens.controlled[0];
+
+
+if(effects.length){
+  Sequencer.EffectManager.endEffects({ name: "*Levita*" });
+  token.document.update({elevation: token.data.elevation =0});
+  
+   TokenMagic.deleteFiltersOnSelected();
+//TokenMagic.addUpdateFiltersOnSelected();
+  }else{
+
+token.document.update({elevation: token.data.elevation +10});
+
+
+
+
+new Sequence()
+    .effect()
+        .file("modules/jb2a_patreon/Library/TMFX/OutFlow/Circle/OutFlow_02_Circle_500x500.webm") 
+        .scale(0.3)
+        .atLocation(tokenD)
+        .attachTo(tokenD, { bindVisibility: false} )
+        .belowTokens()
+        .opacity(0.5)
+        .persist()
+        .name("Levita")
+
+            
+    .play()
+    
+    let params =
+    [{
+        filterType: "shadow",
+        filterId: "myShadow",
+        rotation: 195,
+        blur: 3,
+        quality: 5,
+        distance: 20,
+        alpha: 0.6,
+        padding: 20,
+        shadowOnly: false,
+        color: 0x000000,
+        zOrder: 8000,
+        animated:
+        {
+            blur:     
+            { 
+               active: true, 
+               loopDuration: 500, 
+               animType: "syncCosOscillation", 
+               val1: 2, 
+               val2: 4
+            },
+            rotation:
+            {
+               active: true,
+               loopDuration: 100,
+               animType: "syncSinOscillation",
+               val1: 33,
+               val2: 37
+            }
+         }
+    }];
+    
+    let params2 =
+        [{
+            filterType: "transform",
+            filterId: "dodgeStance",
+            padding: 50,
+            animated:
+            {
+                translationX:
+                {
+                    animType: "sinOscillation",
+                    val1: -0.125,
+                    val2: +0.125,
+                    loopDuration: 9600,
+                },
+                translationY:
+                {
+                    animType: "cosOscillation",
+                    val1: -0.035,
+                    val2: +0.035,
+                    loopDuration: 1400,
+                }
+            }
+        }];
+await TokenMagic.addUpdateFiltersOnSelected(params);
+await TokenMagic.addUpdateFiltersOnSelected(params2);
+ 
+  }
