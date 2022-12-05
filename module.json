@@ -27,15 +27,7 @@
   ],
  
   "packs": [
-    {
-      "name": "Defaults",
-      "label": "GURPS Basic Set Skills",
-      "path": "packs/gurps-instant-defaults.db",
-      "type": "JournalEntry",
-      "private": false,
-      "flags": {}
-    },
-    {
+     {
       "name": "GURPS4E-Macro",
       "label": "myUselessMacros",
       "path": "packs/macros.db",
