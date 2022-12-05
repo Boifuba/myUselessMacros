@@ -1,6 +1,6 @@
 # myUselessMacros
 
->If cannot readed it, use google translator (Portuguese to your language)
+>If you cannot read this, use google translator (Portuguese to your language)
 
 Esse módulo é um conjunto de macros para ajudar a fluência dos meus jogos. Qualquer dúvida me procure no discord. Boifubá#6083
 ---
